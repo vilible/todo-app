@@ -39,7 +39,7 @@ def edit(id: int):
     else:
         return render_template("edit.html", id=id, description=task.description, is_done=task.is_done)
 
-@views.route("/delete/<int:id>")
+@views.route("/delete/<int:id>", methods=["GET"])
 def delete(id: int):
     db.session.delete(Tasks.query.filter_by(id=id).first())
     db.session.commit()
