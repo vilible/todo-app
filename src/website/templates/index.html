@@ -10,18 +10,30 @@
     <body>
         <div id="container">
             <h1>TODO App</h1>
+            <hr>
             <form action="/add" method="POST">
                 <input type="text" name="task" placeholder="Add new task">
                 <input type="submit" value="Confirm">
             </form>
+            <hr>
             <div id="tasks">
             {% if tasks %}
                 {% for task in tasks %}
                     <div class="task">
-                        <h3>{{ task.description }}</h3>
-                        <div>
-                            <h4>{{ task.date }}</h4>
-                            <h4>{{ task.is_done }}</h4>
+                        <div class="task-info">
+                            <p>{{ task.description }}</p>
+                            <p>
+                                {{ task.date }}<br>
+                                {% if is_done %}
+                                    Done
+                                {% else %}
+                                    Undone
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="task-links">
+                            <a href="/edit/{{ task.id }}">Edit</a>
+                            <a href="/delete/{{ task.id }}">Delete</a>
                         </div>
                     </div>
                 {% endfor %}
