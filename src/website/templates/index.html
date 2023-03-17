@@ -24,7 +24,7 @@
                             <p>{{ task.description }}</p>
                             <p>
                                 {{ task.date }}<br>
-                                {% if is_done %}
+                                {% if task.is_done %}
                                     Done
                                 {% else %}
                                     Undone
