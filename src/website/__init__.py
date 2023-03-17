@@ -1,8 +1,6 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 
-from .views import views
-
 db = SQLAlchemy()
 DB_NAME = "todo.db"
 
@@ -17,6 +15,7 @@ def create_app():
     with app.app_context():
         db.create_all()
 
+    from .views import views
     app.register_blueprint(views, url_prefix="/")
 
     return app
