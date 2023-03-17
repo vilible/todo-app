@@ -1,10 +1,11 @@
 from flask import Blueprint, render_template
+from .models import Tasks
 
 views = Blueprint("views", __name__)
 
 @views.route("/")
 def index():
-    pass
+    return render_template("index.html", tasks=Tasks.query.all())
 
 @views.route("/add", methods=["POST"])
 def add():
