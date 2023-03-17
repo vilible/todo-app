@@ -11,7 +11,7 @@
         <div id="container">
             <h1>TODO App</h1>
             <hr>
-            <form action="/add" method="POST">
+            <form action="/add" method="POST" id="form-index">
                 <input type="text" name="task" placeholder="Add new task">
                 <input type="submit" value="Confirm">
             </form>
@@ -24,10 +24,11 @@
                             <p>{{ task.description }}</p>
                             <p>
                                 {{ task.date }}<br>
+                                Status: 
                                 {% if task.is_done %}
-                                    Done
+                                    <img src="{{ url_for('static', filename='done.svg') }}" alt="done">
                                 {% else %}
-                                    Undone
+                                    <img src="{{ url_for('static', filename='undone.svg') }}" alt="undone">
                                 {% endif %}
                             </p>
                         </div>
@@ -38,7 +39,7 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <p>You have no task yet! Add one above!</p>
+                <p id="no-task">You have no task yet! Add one above!</p>
             {% endif %}
             </div>
         </div>

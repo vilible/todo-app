@@ -12,15 +12,19 @@
             <h1>TODO App</h1>
             <hr>
             <h2>Edit task information</h2>
-            <form action="/edit/{{ id }}" method="POST">
-                <label for="task">Change task:</label>
-                <input type="text" name="task" value="{{ description }}">
-                <label for="task">Status:</label>
-                {% if is_done %}
-                    <input type="checkbox" name="is_done" checked>
-                {% else %}
-                    <input type="checkbox" name="is_done">
-                {% endif %}
+            <form action="/edit/{{ id }}" method="POST" id="form-edit">
+                <div>
+                    <label for="task">Change task:</label>
+                    <input type="text" name="task" value="{{ description }}">
+                </div>
+                <div>
+                    <label for="task">Status:</label>
+                    {% if is_done %}
+                        <input type="checkbox" name="is_done" checked>
+                    {% else %}
+                        <input type="checkbox" name="is_done">
+                    {% endif %}
+                </div>
                 <input type="submit" value="Confirm">
             </form>
         </div>
