@@ -3,11 +3,11 @@
 > Simple TODO application writen in Flask (Python framework).  
 > Functionalities:  
 > - ➕ Adding
-> - 〰️ Editing
+> - ✖️ Editing
 > - ➖ Deleting
 
 > ## 🐋 How to run it in Docker?
-> First, you need to build Docker image. To do so, go to project folder and run this command:
+> First, you need to build a Docker image. To do so, go to project folder and run this command:
 > ```
 > $ docker build -t YOUR-IMAGE-NAME .
 > ```
